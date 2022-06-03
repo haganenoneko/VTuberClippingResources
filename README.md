@@ -18,20 +18,20 @@ Scripts and resources to help with clipping
 
 These files represent the minimal full spectrum of tools required for clipping:
 
-1. Downloading videos from YouTube with `scripts/dl.py`
+1. Downloading videos from YouTube with `scripts/download.py`
 2. Creating subtitles with Aegisub (examples in `selected_ass_files`)
 3. Creating thumbnails (PSD files for many thumbnails and VTuber icons in `thumbnails`)
-4. Burning subtitles with `scripts/burn.py`
+4. Burning subtitles with `scripts/hardcode.py`
 
 ## Dependencies
 
-These are software/tools you will need to install before using the scripts below.
+**General software** you will need.
 
 - `Python 3.10.1`
 - `yt-dlp`
 - `ffmpeg`
 
-Python packages. Install these by typing
+**Python packages.** Install these by typing
 
 ```batch
 py -3 -m pip install [PACKAGE_NAME]
@@ -57,13 +57,13 @@ There are two ways to run `scripts/download.py`.
 
 #### Where videos will be downloaded
 
-In both cases, the download location is where you run the script from. If you use the GUI, it will be `scripts/`. If you use a terminal, you can call it from somewhere else, and the videos will be downloaded there instead.
+In both cases, the download location is *where you run the script from*. If you use the GUI, it will be `scripts/`. If you use a terminal, you can call the script from somewhere else, and the videos will be downloaded there instead.
 
 Of course, you can move the files. However, if you move `download.py`, make sure to move `common.py` as well.
 
 #### Using the GUI
 
-The first is by double-clicking the script, which should open a GUI where you can input things like URLs, start and stop times, and download formats.
+Double-clicking the script should open a GUI in which you can input video information.
 
 It will download videos to `scripts/` (unless you change where you're running the script from) and will also save logs into the `scripts/logs/` folder (which it will create if it doesn't exist already).
 
@@ -77,7 +77,7 @@ VTuberClippingResources/
         └── dl.log
 ```
 
-The log file should be very useful, e.g. you can copy-paste the output into your video descriptions while also keeping track of your sources. Each time you run `download.py`, your input will be appended to the file. For example, given the input
+The log file should be very useful, e.g. you can copy-paste the output into your video descriptions while also keeping track of your sources. Each time you run `download.py`, your input will be appended to the file. For example, the input below downloads the first 30 seconds of [this video](https://www.youtube.com/watch?v=oxcLcNcdZiY) in 720p.
 
 <img src="https://github.com/haganenoneko/VTuberClippingResources/blob/main/scripts/Screenshot%202022-06-03%20163317.png?raw=true" style="display: block; margin-left: auto; margin-right: auto; width: 300px; padding-top: 20px; padding-bottom: 20px">
 
@@ -87,16 +87,16 @@ The log file will then be updated with the following information:
 INFO:root:
   Time:                2022-06-03 16:06:26                
   URL:    https://www.youtube.com/watch?v=oxcLcNcdZiY    
-  Start:   00:00:00   Stop:   00:01:00   Format: 380
+  Start:   00:00:00   Stop:   00:00:30   Format: 22
 ```
 
 #### Using the command-line
 
-The second is via the command line. To do this, open the folder containing `dl.py` in `cmd.exe`, `powershell.exe`, or whatever terminal you have. Then, type in `python dl.py --help` to see what commands you can use.
+To use the command-line, open the folder containing `download.py` and `common.py` in whatever terminal you prefer. Then, type in `python download.py --help` to see what commands you can use.
 
 ```bash
-> python dl.py --help
-usage: dl.py [-h] [--start START] [--end END] [--format FORMAT] URL
+> python download.py --help
+usage: download.py [-h] [--start START] [--end END] [--format FORMAT] URL
 
 Add clip information
 
@@ -113,7 +113,7 @@ options:
 For example, the following command downloads 720p video from `https://youtu.be/4UeyWzQFgJU` betwen times `1:03:10` and `1:05:10`.
 
 ```bash
-> ptyhon dl.py --start 01:03:10 --end 01:05:10 --format 22 https://youtu.be/4UeyWzQFgJU
+> python download.py --start 01:03:10 --end 01:05:10 --format 22 https://youtu.be/4UeyWzQFgJU
 ```
 
 #### Notes on inputs
@@ -133,7 +133,12 @@ YOUR_RAW_VIDEO_DIRECTORY = "..."
 YOUR_SUBTITLE_DIRECTORY = "..."
 ```
 
-These should be folders in the same directory that contains `burn.py`.
+These should be folders in the same directory that contains `hardcode.py`. Once you've done this, you should be able to double-click `hardcode.py` and select your input video `.mp4` and subtitle `.ass` files.
+
+If everything works as intended, the hardcoded video file should be saved in a folder called `burned`, also located in the same working directory. 
+
+**A word of caution.** Sometimes, not often, there will be time delays in the final video. In my experience, this delay is usually around +0.5 to +1.5s. I don't know why it happens, but it does. As such, **always check your videos before you upload**! If you need to, go back into Aegisub and shift all your timings down/up as needed. 
+
 
 ## Disclaimer
 
