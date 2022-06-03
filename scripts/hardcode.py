@@ -4,6 +4,9 @@ import tkinter as tk
 from tkinter import filedialog
 from subprocess import Popen
 
+YOUR_RAW_VIDEO_DIRECTORY = "..."
+YOUR_SUBTITLE_DIRECTORY = "..."
+
 root = tk.Tk()
 root.withdraw()
 

@@ -1,8 +1,9 @@
+from multiprocessing.sharedctypes import Value
 import re 
 import argparse
 from datetime import datetime
 from sys import argv 
-from subprocess import Popen
+from subprocess import Popen, check_output
 
 import tkinter as tk 
 from tkinter import messagebox as mbox
@@ -52,19 +53,23 @@ class MultiInput:
 	@staticmethod
 	def _validateFields(
 		url: str, start: str, stop: str, fmt: int) -> Tuple[str, int]:
+
+		url = url.strip()
 		if not validators.url(url):
 			raise ValueError(f"{url} is not a valid URL")
 		
 		try:
 			times = [getTimestamp(t) for t in [start, stop]]
 		except Exception as e:
-			raise ValueError(
+			logging.error(
 				f'Invalid timestamps\nStart:{start:^10}Stop:{stop:^8}')
+			raise ValueError
 
 		try:
 			fmt = int(fmt)
 		except AssertionError:
-			raise BadFormat(f"Format {fmt} must be an integer")
+			logging.error(f"Format {fmt} must be an integer")
+			raise BadFormat
 
 		return url, times[0], times[1], fmt 
 
@@ -227,18 +232,25 @@ def create_gui(defaults: Dict[str, Any]={}) -> Tuple[str, str, str, int]:
 		url, start, stop, fmt = form.contents
 	
 	except AttributeError:
-		raise AttributeError("No valid inputs.")
+		logging.error("No valid inputs.")
+		raise AttributeError()
 
 	except BadFormat:
-		print(f"Unsupported format: {fmt}\nPlease select a format below:")
+		print(
+			f"Unsupported format: {fmt}\nPlease select a format below:")
 
 		url, start, stop, _ = form.extractVariables()
 		defaults = dict(url=url, start=start, stop=stop)
 
-		print("List of available formats:\n")
 		cmd = f"yt-dlp -F {url}"
-		Popen(cmd)
-
+		logging.info(
+			f"""
+			List of available formats:
+			
+			{check_output(cmd)}
+			"""
+		)
+		
 		form = MultiInput(defaults)
 		fmt = form.contents[-1] 
 	

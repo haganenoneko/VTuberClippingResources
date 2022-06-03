@@ -1,0 +1,37 @@
+ffmpeg cmd:
+yt-dlp -f 22 --external-downloader ffmpeg --external-downloader-args "ffmpeg_i:-ss 00:00:00 -to 00:00:30" https://www.youtube.com/watch?v=oxcLcNcdZiY
+PS ...\VTuberClippingResources> [youtube] oxcLcNcdZiY: Downloading webpage
+[youtube] oxcLcNcdZiY: Downloading android player API JSON
+[info] oxcLcNcdZiY: Downloading 1 format(s): 22
+[download] Destination: 【恋バナ】ヲタクの恋愛相談聞く！２人で優しく解決だ～！！【星川サラ_にじさんじ_樋口楓】 [oxcLcNcdZiY].mp4
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'https://rr2---sn-ni5f-t8gz.googlevideo.com/videoplayback?expire=1654320308&ei=VJiaYqaCLOSOsfIPtfihqAc&ip=2604%3A3d08%3A4f7b%3Ad300%3A40c9%3A8229%3A33d1%3Af6ae&id=o-AClLzXTcbatkwiWZETwXmAQCgQrfm2RDnDHxKafwsAQE&itag=22&source=youtube&requiressl=yes&mh=a8&mm=31%2C26&mn=sn-ni5f-t8gz%2Csn-vgqskns7&ms=au%2Conr&mv=m&mvi=2&pl=46&initcwndbps=1726250&vprv=1&mime=video%2Fmp4&cnr=14&ratebypass=yes&dur=7376.050&lmt=1614700911850343&mt=1654298462&fvip=1&fexp=24001373%2C24007246&c=ANDROID&txp=7316222&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgTxUADrrYP8Hpk2AjrYTRDqsaEVPZe6rTrQTBmQwsgAkCIAtFDxLdy9HbXGwDlNl8LlB_ab48WuOaqEK4VeXqon_4&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhAJWF1WNyF13vOYYptKxqnWjisDSionoeKGqDuCiVxYPiAiB8DmH6eNr7RMU1_PAmFaG2Z8ZDgOhEiVEPBWJUDCWozA%3D%3D':       
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    creation_time   : 2021-03-02T15:33:46.000000Z
+  Duration: 02:02:56.00, start: 0.000000, bitrate: 1489 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1280x720 [SAR 1:1 DAR 16:9], 1358 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+    Metadata:
+      creation_time   : 2021-03-02T15:33:46.000000Z
+      handler_name    : ISO Media file produced by Google Inc. Created on: 03/02/2021.
+      vendor_id       : [0][0][0][0]
+  Stream #0:1[0x2](eng): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default)
+    Metadata:
+      creation_time   : 2021-03-02T15:33:46.000000Z
+      handler_name    : ISO Media file produced by Google Inc. Created on: 03/02/2021.
+      vendor_id       : [0][0][0][0]
+Output #0, mp4, to 'file:【恋バナ】ヲタクの恋愛相談聞く！２人で優しく解決だ～！！【星川サラ_にじさんじ_樋口楓】 [oxcLcNcdZiY].mp4.part':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+      vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+  Stream #0:1 -> #0:1 (copy)
+Press [q] to stop, [?] for help
+frame=  901 fps=877 q=-1.0 Lsize=    4925kB time=00:00:30.00 bitrate=1345.0kbits/s speed=29.2x
+video:4427kB audio:469kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.591448%
+[ffmpeg] Downloaded 5043617 bytes
+[download] 100% of 4.81MiB in 00:02
