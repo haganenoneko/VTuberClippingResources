@@ -57,9 +57,7 @@ There are two ways to run `scripts/download.py`.
 
 #### Where videos will be downloaded
 
-In both cases, the download location is *where you run the script from*. If you use the GUI, it will be `scripts/`. If you use a terminal, you can call the script from somewhere else, and the videos will be downloaded there instead.
-
-Of course, you can move the files. However, if you move `download.py`, make sure to move `common.py` as well.
+In both cases, the download location is *where you run the script from*. If you use the GUI, it will be `scripts/`. If you use a terminal, you can call the script from somewhere else, and the videos will be downloaded there instead. Of course, you can move the files to whichever directory you like.
 
 #### Using the GUI
 
@@ -70,7 +68,6 @@ It will download videos to `scripts/` (unless you change where you're running th
 ```
 VTuberClippingResources/
 └── scripts/
-    ├── common.py
     ├── download.py
     ├── hardcode.py
     └── logs/
@@ -92,7 +89,7 @@ INFO:root:
 
 #### Using the command-line
 
-To use the command-line, open the folder containing `download.py` and `common.py` in whatever terminal you prefer. Then, type in `python download.py --help` to see what commands you can use.
+To use the command-line, open the folder containing `download.py` in whatever terminal you prefer. Then, type in `python download.py --help` to see what commands you can use.
 
 ```bash
 > python download.py --help
