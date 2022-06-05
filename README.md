@@ -49,7 +49,11 @@ Python 3.10.1
 
 ## Instructions
 
-The scripts in the `./scripts/` folder can be used to download videos from YouTube and hardcode subtitles.
+In the `/scripts/` folder,
+
+1. The `.py` scripts can be used to download videos from YouTube and hardcode subtitles.
+2. The `.js` scripts can be saved as bookmarks in your browser and opened in a YouTube video to control its speed and time. 
+
 
 ### Downloading YouTube clips with `scripts/download.py`
 
@@ -70,6 +74,8 @@ VTuberClippingResources/
 └── scripts/
     ├── download.py
     ├── hardcode.py
+    ├── video_time.js
+    ├── video_speed.js
     └── logs/
         └── dl.log
 ```
