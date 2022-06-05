@@ -1,0 +1,1 @@
+javascript: var hms = prompt("Enter time in HH:MM:SS").split(':'); document.getElementsByTagName('video')[0].currentTime = (+hms[0])*3600 + (+hms[1])*60 + (+hms[2]); 
